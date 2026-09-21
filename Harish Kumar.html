@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Harish Photo Editor</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{font-family:sans-serif;background:#e8f2ff;margin:0}
+.header{background:#fff;padding:15px;display:flex;justify-content:space-between}
+.hero{padding:30px;text-align:center;background:linear-gradient(#d6e8ff,#c2dbff)}
+.upload{background:#fff;border:2px dashed #1560d1;border-radius:20px;padding:30px;margin:20px auto;max-width:500px}
+.btn{background:#1560d1;color:#fff;padding:12px 20px;border:none;border-radius:10px;font-weight:bold}
+.tools{display:grid;grid-template-columns:1fr 1fr;gap:15px;padding:20px}
+.card{background:#fff;padding:15px;border-radius:12px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,0.1)}
+</style>
+</head>
+<body>
+<div style="text-align:center;">
+  <h1 style="background:#1560d1; color:white; margin:0; padding:10px; font-size:30px;">Harish Editor Pratapgarh</h1>
+  <img src="vikash.jpg" style="width:100%; height:auto; display:block;">
+  <div style="background:#0d47a1; color:white; padding:10px;">Made in India ❤️</div>
+</div>
+<div class="hero">
+<h1>Edit photos online, fast & free</h1>
+<p>Background Remover, Passport Photo, Enhance - All Free</p>
+<div class="upload">
+<h3>Drag & Drop your image here</h3>
+<input type="file" id="file" accept="image/*">
+<br><br>
+<button class="btn" onclick="document.getElementById('file').click()">Upload Image</button>
+<br><br>
+<img id="preview" style="max-width:100%;display:none;border-radius:10px">
+</div>
+</div>
+<div class="tools">
+<div class="card"><h4>Background Remover</h4><p>Most Popular</p></div>
+<div class="card"><h4>Passport Photo</h4><p>35x45mm</p></div>
+<div class="card"><h4>Photo Enhance</h4><p>AI Enhance</p></div>
+<div class="card"><h4>Color Correction</h4><p>Pro Tools</p></div>
+</div>
+<script>
+document.getElementById('file').onchange = function(e){
+  var reader = new FileReader();
+  reader.onload = function(ev){
+    var img = document.getElementById('preview');
+    img.src = ev.target.result;
+    img.style.display='block';
+  }
+  reader.readAsDataURL(e.target.files[0]);
+}
+</script>
+<!-- Social Buttons - नीचे कोने में -->
+<div style="position:fixed; bottom:20px; right:20px; display:flex; flex-direction:column; gap:10px; z-index:999;">
+
+<!-- Social Buttons - नीचे कोने में -->
+<div style="position:fixed; bottom:20px; right:20px; display:flex; flex-direction:column; gap:10px; z-index:999;">
+<a onclick="document.getElementById('chatBox').style.display='block'" style="background:#1a5cff; color:white; padding:12px 16px; border-radius:50px; text-decoration:none; font-weight:bold; display:flex; align-items:center; box-shadow:0 4px 10px rgba(0,0,0,0.3); cursor:pointer;">
+  <img src="https://cdn-icons-png.flaticon.com/512/134/134914.png" style="width:26px; height:26px; margin-right:8px; filter:brightness(0) invert(1);">
+  Chat Support
+</a>
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/916261234567?text=Hi%20Harish%20Bhai%20Photo%20Edit%20Karwani%20Hai" target="_blank" style="background:#25D366; color:white; padding:12px 16px; border-radius:50px; text-decoration:none; font-weight:bold; display:flex; align-items:center; box-shadow:0 4px 10px rgba(0,0,0,0.3);">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" style="width:26px; height:26px; margin-right:8px;">
+    WhatsApp
+  </a>
+
+  <!-- Instagram Button -->
+  <a href="https://instagram.com/___its_rdx_harish_kp___0072" target="_blank" style="background:linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5); color:white; padding:12px 16px; border-radius:50px; text-decoration:none; font-weight:bold; display:flex; align-items:center; box-shadow:0 4px 10px rgba(0,0,0,0.3);">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" style="width:26px; height:26px; margin-right:8px; background:white; border-radius:6px; padding:2px;">
+    Instagram
+  </a>
+</div>
+<div id="chatBox" style="display:none; position:fixed; bottom:90px; right:20px; width:300px; background:white; border-radius:15px; box-shadow:0 5px 20px rgba(0,0,0,0.3); z-index:1000; overflow:hidden;">
+  <div style="background:#1a5cff; color:white; padding:12px; font-weight:bold; display:flex; justify-content:space-between;">
+    <span>Harish Support 💬</span>
+    <span onclick="document.getElementById('chatBox').style.display='none'" style="cursor:pointer;">✕</span>
+  </div>
+  <div style="padding:15px;">
+    <input id="userMsg" type="text" placeholder="मैसेज लिखें..." style="width:100%; padding:10px; border:1px solid #ccc; border-radius:8px; box-sizing:border-box;">
+    <button onclick="sendChat()" style="margin-top:10px; width:100%; background:#1a5cff; color:white; border:none; padding:10px; border-radius:8px; font-weight:bold;">E-mail 📩 पर भेजें</button>
+  </div>
+</div>
+
+<script>
+function sendChat(){
+  var msg = document.getElementById('userMsg').value;
+  if(msg==""){ alert("पहले मैसेज लिखो!"); return; }
+  window.open("https://mail.google.com/mail/u/0/?fs=1&tf=cm&to=harishkumar983868@gmail.com&su=Photo Editor Help&body=" + encodeURIComponent(msg), "_blank");
+}
+</script>
+</body>
+</html>
